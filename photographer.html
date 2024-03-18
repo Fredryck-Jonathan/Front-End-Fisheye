@@ -11,27 +11,108 @@
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" aria-hidden="true">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <div id="text-title-modal">
+            <h2>Contactez-moi</h2>
+          </div>
+
+          <img src="assets/icons/close.svg" alt="Close Contact form" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
+				<form onsubmit="submitForm(event)">
+					<div
+          class="formData"
+          data-error="Veuillez entrer 2 caractères ou plus pour le champ du Prénom." 
+          data-error-visible="false">
+						<label for="first">Prénom</label>
+						<input 
+              class="text-control"
+              type="text"
+              id="first" 
+              alt="First name" 
+              />
 					</div>
-          <button class="contact_button">Envoyer</button>
+
+          <div
+          class="formData"
+          data-error="Veuillez entrer 2 caractères ou plus pour le champ du Nom." 
+          data-error-visible="false">
+						<label for="last">Nom</label>
+						<input                   
+              class="text-control"
+              type="text"
+              id="last"
+              alt="Last name" 
+              />
+					</div>
+
+          <div
+          class="formData"
+          data-error="Vous devez entrer une adresse Email valide." 
+          data-error-visible="false">
+						<label for="email">Email</label>
+						<input 
+              class="text-control"
+              type="email"
+              id="email" 
+              alt="Email" 
+              />
+					</div>
+
+          <div
+          class="formData"
+          data-error="Veuillez entrer un message." 
+          data-error-visible="false">
+						<label for="message">Votre message</label>
+						<input
+              class="text-control"
+              type="text"
+              id="message" 
+              alt="Your message"
+              />
+					</div>
+
+
+          <button type="submit" class="contact_button" alt="Send">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    <div class="lightbox" id="lightbox">
+      <img class="lightbox-control previous" id="button-previous-image" src="assets/icons/arrow_left.svg" alt="Previous image">
+
+      <div id="lightbox-inner">
+        <div id="lightbox-infos">
+
+        </div>
+      </div>
+
+      <div id="div_button_next_close">
+        <img  class="button-close-lightbox"  src="assets/icons/close_red.svg" alt="close lightbox" onclick="closeLightbox()" >
+        <img class="lightbox-control next" id="button-next-image" src="assets/icons/arrow_right.svg" alt="Next image">
+      </div>
+    </div>
+
+    <div id="modal-validated">
+      <div class="content-validated">
+
+        <img class="close-validated" src="assets/icons/close.svg" alt="close validated form" onclick="closeModalValidated()">
+
+        <div class="modal-body-validated">
+            <p>Merci pour votre inscription</p>
+            <button class="close-btn-bground-validated" onclick="closeModalValidated()">Fermer</button>
+        </div>
+
+      </div>
+
     <script src="/scripts/pages/photographer.js"></script>
+    <script src="scripts/templates/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightBox.js"></script>
   </body>
 </html>
