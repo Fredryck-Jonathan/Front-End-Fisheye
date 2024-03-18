@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -9,14 +9,14 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
-    <div id="contact_modal" aria-hidden="true">
+    <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="Modal qui vous permets de nous contactez en remplissant un formulaire">
 			<div class="modal">
 				<header>
           <div id="text-title-modal">
@@ -36,6 +36,7 @@
               type="text"
               id="first" 
               alt="First name" 
+              required
               />
 					</div>
 
@@ -48,7 +49,8 @@
               class="text-control"
               type="text"
               id="last"
-              alt="Last name" 
+              alt="Last name"
+              required
               />
 					</div>
 
@@ -62,6 +64,7 @@
               type="email"
               id="email" 
               alt="Email" 
+              required
               />
 					</div>
 
@@ -70,12 +73,13 @@
           data-error="Veuillez entrer un message." 
           data-error-visible="false">
 						<label for="message">Votre message</label>
-						<input
+						<textarea
               class="text-control"
               type="text"
               id="message" 
               alt="Your message"
-              />
+              required
+              ></textarea>
 					</div>
 
 
@@ -83,7 +87,7 @@
 				</form>
 			</div>
 		</div>
-    <div class="lightbox" id="lightbox">
+    <div class="lightbox" id="lightbox" role="dialog">
       <img class="lightbox-control previous" id="button-previous-image" src="assets/icons/arrow_left.svg" alt="Previous image">
 
       <div id="lightbox-inner">

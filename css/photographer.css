@@ -181,7 +181,7 @@ flex-direction: column;
 height: 351px;
 width: 350px;
 justify-content: space-between;
-cursor: pointer;
+
 
 
 }
@@ -194,6 +194,7 @@ width: 350px;
 height: 300px;
 overflow: hidden;
 border-radius: 5px;
+cursor: pointer;
 
 
 
@@ -416,9 +417,14 @@ form input {
     font-size: 20px;
 }
 
-form div:nth-child(4) input{
+form div:nth-child(4) textarea{
 
 height: 204px;
+width: 100%;
+border: none;
+border-radius: 5px;
+font-size: 20px;
+padding-top: 10px;
 
 }
 

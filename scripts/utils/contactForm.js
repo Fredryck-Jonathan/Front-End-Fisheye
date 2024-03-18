@@ -104,40 +104,18 @@ function verificationText(element, regex) {
     }
 }
 
-/*function verificationFirstName(value) { 
-    const regex = /^[^%$€"'~*+.;:!?, <>"#°=+£¤&²{}[\]`@()_|\/[\\^¨§µ\d]{2,}$/g;
-    if (regex.test(value)) {
-        return true
+document.addEventListener('keydown', function (event) {
+
+    const modal = document.getElementById("contact_modal");
+
+    console.log(event.key, modal.getAttribute("aria-hidden"))
+
+    if (modal.getAttribute("aria-hidden") == 'false' && event.key == "Escape") {
+            closeModal();
     } else {
         return false
     }
-}
+})
 
-function verificationLastName(value) {
-        const regex = /^[^%$€"'~*+.;:!?, <>"#°=+£¤&²{}[\]`@()_|\/[\\^¨§µ\d]{2,}$/g;
-        if (regex.test(value)) {
-            return true
-        } else {
-            return false
-        }
-}
-
-function verificationEmail(value) { 
-    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (regex.test(value)) {
-        return true
-    } else {
-        return false
-    }
-}
-
-function verificationMessage(value) {
-    const regex = /^[^"'~*<>"#°=+£¤&²{}[\]`@_|\/[\\^¨§µ\d]{2,}$/g;
-    if (regex.test(value)) {
-        return true
-    } else {
-        return false
-    }
-}*/
 
 

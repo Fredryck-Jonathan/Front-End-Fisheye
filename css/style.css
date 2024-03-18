@@ -5,6 +5,10 @@ body {
     margin: 0;
 }
 
+textarea{
+font-family: "DM Sans", sans-serif;
+}
+
 
 header {
     display: flex;

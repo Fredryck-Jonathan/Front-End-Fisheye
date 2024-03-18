@@ -9,6 +9,15 @@ function init_lightbox(event, medias_array, media, directory) {
 
     lightbox.style.display = 'flex';
 
+    lightbox.setAttribute('aria-hidden', 'false');
+
+    const mainDOM = document.getElementById('main');
+    mainDOM.setAttribute('aria-hidden', 'true');
+
+    const bodyDOM = document.querySelector("body");
+    bodyDOM.setAttribute('scroll', "no");
+    bodyDOM.style.overflow = "hidden";
+
     const div_lightbox_infos = document.getElementById('lightbox-infos');
 
     let currentIndex = 0;
@@ -57,13 +66,20 @@ function init_lightbox(event, medias_array, media, directory) {
     
     document.addEventListener('keydown', function (event) {
         console.log(event.key)
-        if (event.key == "ArrowRight" && currentIndex  !== medias_array.length - 1) { 
-            currentIndex++;
-            translateImage(currentIndex, medias_array);
-        }
-        else if ((event.key == "ArrowLeft" && currentIndex  !== 0)) {
-            currentIndex--;
-            translateImage(currentIndex, medias_array);
+        if (lightbox.style.display == 'flex') {
+            if (event.key == "ArrowRight" && currentIndex !== medias_array.length - 1) {
+                currentIndex++;
+                translateImage(currentIndex, medias_array);
+            }
+            else if ((event.key == "ArrowLeft" && currentIndex !== 0)) {
+                currentIndex--;
+                translateImage(currentIndex, medias_array);
+            } else if (event.key == "Escape") {
+                closeLightbox();
+            }
+            else {
+                return false
+            }
         } else {
             return false
         }
@@ -93,6 +109,14 @@ function closeLightbox() {
     const div_lightbox_infos = document.getElementById('lightbox-infos');
 
     lightbox.style.display = 'none';
+    lightbox.setAttribute('aria-hidden', 'true')
+
+    const mainDOM = document.getElementById('main');
+    mainDOM.setAttribute('aria-hidden', 'false');
+
+    const bodyDOM = document.querySelector("body");
+    bodyDOM.setAttribute('scroll', "yes");
+    bodyDOM.style.overflow = "visible";
 
     while (div_lightbox_infos.firstChild) {
         div_lightbox_infos.removeChild(div_lightbox_infos.firstChild);

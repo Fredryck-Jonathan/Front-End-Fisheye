@@ -207,7 +207,8 @@ function photographerTemplate(data) {
                 const img_one_element_gallery = document.createElement('img');
                 img_one_element_gallery.src = `assets/Medias/${directory}/${media.image}`;
                 div_media_one_element_gallery.appendChild(img_one_element_gallery);
-                img_one_element_gallery.addEventListener('click', (event) => {init_lightbox(event, medias, media, directory)});
+                img_one_element_gallery.addEventListener('click', (event) => { init_lightbox(event, medias, media, directory) });
+                img_one_element_gallery.setAttribute('alt', media.title);
             } else {
                 // Si c'est une vidéo
 
@@ -280,43 +281,20 @@ function photographerTemplate(data) {
     }
 
     function addLike(event ,media) {
-
         const mediaIndex = medias.indexOf(media);
-
-        console.log(mediaIndex, medias[mediaIndex])
-
         medias[mediaIndex].likes++;
-
-        console.log(mediaIndex, medias[mediaIndex]);
-
-
-
         const totalLikes = countLikes();
-
         document.getElementById('p-total-likes').textContent = totalLikes;
-
-
-
-
         const heart_black = event.currentTarget;
-
         const div_text_like_one_element = heart_black.closest('.div-text-like-one-element');
-
         const p_like_one_element = div_text_like_one_element.querySelector('.p-likes');
-
         p_like_one_element.textContent = medias[mediaIndex].likes;
-
         const heart_red = heart_black.parentNode.querySelector('.img-like-one-gallery');
-
         heart_black.style.visibility = "hidden";
-
         heart_red.style.visibility = "visible";
-
-        console.log(heart_black, heart_red)
     }
     
     function removeLike(event, media) {
-
         const mediaIndex = medias.indexOf(media);
         medias[mediaIndex].likes--;
         const totalLikes = countLikes();
@@ -328,7 +306,6 @@ function photographerTemplate(data) {
         const heart_black = heart_red.parentNode.querySelector('.img-no-like-one-gallery')
         heart_red.style.visibility = "hidden";
         heart_black.style.visibility = "visible";
-        console.log(heart_black, heart_red)
     }
 
 
