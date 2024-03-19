@@ -123,10 +123,6 @@ function photographerTemplate(data) {
 
             value_selected = event.currentTarget.value;
 
-            while (div_gallery.firstChild) {
-                div_gallery.removeChild(div_gallery.firstChild);
-            }
-
             if (value_selected === "popularity") {
                 medias.sort((a, b) => b.likes - a.likes);
             } else if (value_selected === "date") {
@@ -135,7 +131,7 @@ function photographerTemplate(data) {
                 medias.sort((a, b) => a.title.localeCompare(b.title));
             }
 
-            createGallery(medias, div_gallery)
+            reorganiserGallery(medias, div_gallery)
 
         })
 
@@ -196,6 +192,7 @@ function photographerTemplate(data) {
             console.log(media)
             const div_one_element_gallery = document.createElement('div');
             div_one_element_gallery.classList.add('div-one-gallery');
+            div_one_element_gallery.setAttribute('data-id', media.id);
 
 
             // Création de l'élément div
@@ -308,6 +305,24 @@ function photographerTemplate(data) {
         heart_black.style.visibility = "visible";
     }
 
+
+    function reorganiserGallery(medias) {
+
+        const div_gallery = document.getElementById('gallery');
+        const all_one_element = div_gallery.childNodes;
+
+        medias.forEach(media => {
+            console.log(media);
+            for (let element of all_one_element) {
+                const id_element = element.getAttribute('data-id');
+                if (id_element == media.id) {
+                    console.log(media, element)
+                    div_gallery.appendChild(element);
+                    return true
+                }
+            }
+        });
+    }
 
 
     return { name, picture, getUserCardDOM, getUserPhotographeHeaderDOM, getUserPhotographeMainPageDOM}
