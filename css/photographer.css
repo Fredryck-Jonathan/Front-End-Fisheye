@@ -149,6 +149,7 @@ object-position: center center;
     color: white;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 
 
 }
@@ -187,13 +188,14 @@ justify-content: space-between;
 }
 
 
-#gallery .div-one-gallery .div-media-one-gallery{
+#gallery .div-one-gallery .button-media-one-gallery{
 
 position: relative;
 width: 350px;
 height: 300px;
 overflow: hidden;
 border-radius: 5px;
+border:none;
 cursor: pointer;
 
 
@@ -201,7 +203,7 @@ cursor: pointer;
 
 }
 
-#gallery .div-one-gallery .div-media-one-gallery img, #gallery .div-one-gallery .div-media-one-gallery video{
+#gallery .div-one-gallery .button-media-one-gallery img, #gallery .div-one-gallery .button-media-one-gallery video{
 
 position: absolute; /* Position absolue pour positionner l'image */
 top: 50%; /* Positionner l'image à 50% du haut du conteneur */
@@ -267,7 +269,29 @@ object-fit: cover;
 
 }
 
-#gallery .div-one-gallery .div-text-one-gallery div .div-icone-like .img-like-one-gallery{
+
+#gallery .div-one-gallery .div-text-one-gallery div .div-icone-like .button_liked_element{
+
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+
+}
+
+#gallery .div-one-gallery .div-text-one-gallery div .div-icone-like .button_no_liked_element{
+
+    visibility: visible;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+
+}
+
+
+/*#gallery .div-one-gallery .div-text-one-gallery div .div-icone-like .img-like-one-gallery{
 
 position: absolute;
 left: 0;
@@ -282,7 +306,7 @@ cursor: pointer;
     visibility: visible;
     cursor: pointer;
 
-    }
+    }*/
     
 
 
@@ -351,7 +375,7 @@ cursor: pointer;
 }
 
 .modal header #text-title-modal h1{
-    font-size: 50px;
+    font-size: 45px;
     font-weight: normal;
     margin: 0;
     color: black;

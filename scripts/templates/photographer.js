@@ -118,11 +118,8 @@ function photographerTemplate(data) {
         createGallery(medias, div_gallery)
 
         order_select.addEventListener("change", (event) => {
-
             console.log(event.currentTarget.value);
-
             value_selected = event.currentTarget.value;
-
             if (value_selected === "popularity") {
                 medias.sort((a, b) => b.likes - a.likes);
             } else if (value_selected === "date") {
@@ -130,9 +127,7 @@ function photographerTemplate(data) {
             } else {
                 medias.sort((a, b) => a.title.localeCompare(b.title));
             }
-
-            reorganiserGallery(medias, div_gallery)
-
+            reorganiserGallery(medias)
         })
 
         const div_infos_like_price = document.createElement('div');
@@ -187,7 +182,7 @@ function photographerTemplate(data) {
 
     function createGallery(medias, div_gallery) {
 
-        medias.forEach(media => {
+        medias.forEach((media, index )=> {
 
             console.log(media)
             const div_one_element_gallery = document.createElement('div');
@@ -195,34 +190,26 @@ function photographerTemplate(data) {
             div_one_element_gallery.setAttribute('data-id', media.id);
 
 
+
             // Création de l'élément div
-            const div_media_one_element_gallery = document.createElement('div');
-            div_media_one_element_gallery.classList.add('div-media-one-gallery');
+            const div_media_one_element_gallery = document.createElement('button');
+            div_media_one_element_gallery.classList.add('button-media-one-gallery');
+            div_media_one_element_gallery.addEventListener('click', (event) => { init_lightbox(event, medias, media, directory) });
 
             if (media.image) {
                 // Si c'est une image, créez simplement une balise img et attribuez-lui la source
                 const img_one_element_gallery = document.createElement('img');
                 img_one_element_gallery.src = `assets/Medias/${directory}/${media.image}`;
                 div_media_one_element_gallery.appendChild(img_one_element_gallery);
-                img_one_element_gallery.addEventListener('click', (event) => { init_lightbox(event, medias, media, directory) });
                 img_one_element_gallery.setAttribute('alt', media.title);
             } else {
                 // Si c'est une vidéo
-
                 const video_one_element_gallery = document.createElement('video');
                 const source_video = document.createElement('source');
                 source_video.src = `assets/Medias/${directory}/${media.video}`;
                 source_video.type = "video/mp4";
-
                 video_one_element_gallery.appendChild(source_video);
-
-                // Créer une image pour afficher l'image extraite
-                const img_extracted = document.createElement('img');
-                img_extracted.src = ""; // L'image extraite sera définie lorsque la vidéo sera chargée
-                video_one_element_gallery.appendChild(img_extracted);
-    
                 div_media_one_element_gallery.appendChild(video_one_element_gallery);
-                video_one_element_gallery.addEventListener('click', (event) => {init_lightbox(event, medias, media, directory)});
 
             }
 
@@ -249,21 +236,29 @@ function photographerTemplate(data) {
             div_icone_like_one_element_gallery.classList.add('div-icone-like');
 
 
+            const button_no_liked = document.createElement('button');
+            button_no_liked.classList.add('button_no_liked_element');
+            button_no_liked.addEventListener('click',(event) => addLike(event, media));
+
             const icone_like_no_liked_one_element_gallery = document.createElement('img');
             icone_like_no_liked_one_element_gallery.setAttribute('src', 'assets/icons/heart_black.svg');
             icone_like_no_liked_one_element_gallery.setAttribute('alt', "likes");
             icone_like_no_liked_one_element_gallery.classList.add('img-no-like-one-gallery')
-            icone_like_no_liked_one_element_gallery.addEventListener('click',(event) => addLike(event, media));
+            button_no_liked.appendChild(icone_like_no_liked_one_element_gallery);
+
+
+            const button_liked = document.createElement('button');
+            button_liked.classList.add('button_liked_element');
+            button_liked.addEventListener('click',(event) => removeLike(event, media));
 
             const icone_like_liked_one_element_gallery = document.createElement('img');
             icone_like_liked_one_element_gallery.setAttribute('src', 'assets/icons/heart_red.svg');
             icone_like_liked_one_element_gallery.setAttribute('alt', "likes");
             icone_like_liked_one_element_gallery.classList.add('img-like-one-gallery');
-            icone_like_liked_one_element_gallery.addEventListener('click',(event) => removeLike(event, media));
+            button_liked.appendChild(icone_like_liked_one_element_gallery);
 
-
-            div_icone_like_one_element_gallery.appendChild(icone_like_no_liked_one_element_gallery)
-            div_icone_like_one_element_gallery.appendChild(icone_like_liked_one_element_gallery)
+            div_icone_like_one_element_gallery.appendChild(button_no_liked)
+            div_icone_like_one_element_gallery.appendChild(button_liked)
 
 
 
@@ -286,7 +281,7 @@ function photographerTemplate(data) {
         const div_text_like_one_element = heart_black.closest('.div-text-like-one-element');
         const p_like_one_element = div_text_like_one_element.querySelector('.p-likes');
         p_like_one_element.textContent = medias[mediaIndex].likes;
-        const heart_red = heart_black.parentNode.querySelector('.img-like-one-gallery');
+        const heart_red = heart_black.parentNode.querySelector('.button_liked_element');
         heart_black.style.visibility = "hidden";
         heart_red.style.visibility = "visible";
     }
@@ -300,7 +295,7 @@ function photographerTemplate(data) {
         const div_text_like_one_element = heart_red.closest('.div-text-like-one-element');
         const p_like_one_element = div_text_like_one_element.querySelector('.p-likes');
         p_like_one_element.textContent = medias[mediaIndex].likes;
-        const heart_black = heart_red.parentNode.querySelector('.img-no-like-one-gallery')
+        const heart_black = heart_red.parentNode.querySelector('.button_no_liked_element')
         heart_red.style.visibility = "hidden";
         heart_black.style.visibility = "visible";
     }

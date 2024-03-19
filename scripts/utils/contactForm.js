@@ -104,18 +104,57 @@ function verificationText(element, regex) {
     }
 }
 
-document.addEventListener('keydown', function (event) {
 
+/*document.addEventListener('keydown', function (event) {
     const modal = document.getElementById("contact_modal");
+    const modalElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
 
-    console.log(event.key, modal.getAttribute("aria-hidden"))
-
-    if (modal.getAttribute("aria-hidden") == 'false' && event.key == "Escape") {
+    if (modal.getAttribute("aria-hidden") === 'false') {
+        if (event.key === "Escape") {
             closeModal();
-    } else {
-        return false
+        } else if (event.key === 'Tab') {
+            const firstElement = modalElements[0];
+            console.log(firstElement, modalElements)
+            const lastElement = modalElements[modalElements.length - 1];
+            if (event.shiftKey && document.activeElement === lastElement) {
+                // Si la touche Tab est enfoncée et le dernier élément est en focus, revenir au premier élément
+                event.preventDefault();
+                firstElement.focus();
+            } else if (event.shiftKey && document.activeElement === firstElement) {
+                // Si la touche Maj + Tab est enfoncée et le premier élément est en focus, aller au dernier élément
+                event.preventDefault();
+                lastElement.focus();
+            }
+        }
     }
-})
+});*/
+
+document.addEventListener('keydown', function (event) {
+    const modal = document.getElementById("contact_modal");
+    const modalElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+
+    if (modal.getAttribute("aria-hidden") === 'false') {
+        if (event.key === "Escape") {
+            closeModal();               
+        } else if (event.key === 'Tab') {
+            const firstElement = modalElements[0];
+            const lastElement = modalElements[modalElements.length - 1];
+            if (!modal.contains(document.activeElement)) {
+                event.preventDefault();
+                modalElements[0].focus();
+            }
+            else if (event.shiftKey && document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }  
+        }
+        }
+    
+});
+
 
 
 
