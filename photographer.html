@@ -22,7 +22,6 @@
           <div id="text-title-modal">
             <h2>Contactez-moi</h2>
           </div>
-
           <img src="assets/icons/close.svg" alt="Close Contact form" onclick="closeModal()" />
         </header>
 				<form onsubmit="submitForm(event)">
@@ -39,7 +38,6 @@
               required
               />
 					</div>
-
           <div
           class="formData"
           data-error="Veuillez entrer 2 caractères ou plus pour le champ du Nom." 
@@ -53,7 +51,6 @@
               required
               />
 					</div>
-
           <div
           class="formData"
           data-error="Vous devez entrer une adresse Email valide." 
@@ -67,7 +64,6 @@
               required
               />
 					</div>
-
           <div
           class="formData"
           data-error="Veuillez entrer un message." 
@@ -81,37 +77,28 @@
               required
               ></textarea>
 					</div>
-
-
           <button type="submit" class="contact_button" alt="Send">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div class="lightbox" id="lightbox" role="dialog">
       <img class="lightbox-control previous" id="button-previous-image" src="assets/icons/arrow_left.svg" alt="Previous image">
-
       <div id="lightbox-inner">
         <div id="lightbox-infos">
-
         </div>
       </div>
-
       <div id="div_button_next_close">
         <img  class="button-close-lightbox"  src="assets/icons/close_red.svg" alt="close lightbox" onclick="closeLightbox()" >
         <img class="lightbox-control next" id="button-next-image" src="assets/icons/arrow_right.svg" alt="Next image">
       </div>
     </div>
-
     <div id="modal-validated">
       <div class="content-validated">
-
         <img class="close-validated" src="assets/icons/close.svg" alt="close validated form" onclick="closeModalValidated()">
-
         <div class="modal-body-validated">
             <p>Merci pour votre inscription</p>
             <button class="close-btn-bground-validated" onclick="closeModalValidated()">Fermer</button>
         </div>
-
       </div>
 
     <script src="/scripts/pages/photographer.js"></script>

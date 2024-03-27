@@ -3,27 +3,19 @@
         // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
         try {
             const reponse = await fetch("data/photographers.json")
-
             console.log(reponse)
-
             const photographers = await reponse.json()
-
             console.log(photographers)
-
         // et bien retourner le tableau photographers seulement une fois récupéré
         return ({
             photographers: photographers.photographers})
         } catch (error) {
-
             console.log(error)
-
         }
-
     }
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
-
         photographers.forEach((photographer) => {
             const photographerModel = photographerTemplate(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
@@ -36,6 +28,6 @@
         const { photographers } = await getPhotographers();
         displayData(photographers);
     }
-    
+
     init();
-    
+
