@@ -80,14 +80,11 @@
     align-items: center;
     gap: 40px;
 }
-
 #section-gallery #div-select label{
     font-size: 18px;
     font-weight: 700;
     color: black;
 }
-
-
 #section-gallery #div-select #order-select{
     font-size: 18px;
     padding: 15px 20px 15px 20px;
@@ -234,8 +231,6 @@ form label {
     color: #312E2E;
     font-size: 24px;
 }
-
-
 .formData[data-error]::after {
     content: attr(data-error);
     font-size: 12px;
@@ -248,23 +243,18 @@ form label {
     opacity: 0;
     transition: 0.3s;
 }
-
 .formData[data-error-visible="true"]::after {
     opacity: 1;
 }
-
 .formData[data-error-visible="true"] .text-control {
     border: 2px solid #ce0318;
 }
-
 form div {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-
 }
-
 form input {
     width: 100%;
     height: 60px;
@@ -272,31 +262,24 @@ form input {
     border-radius: 5px;
     font-size: 20px;
 }
-
 form div:nth-child(4) textarea{
-
 height: 204px;
 width: 100%;
 border: none;
 border-radius: 5px;
 font-size: 20px;
 padding-top: 10px;
-
 }
-
 
 /*Stylisation de l'affirmation du formulaire effectuer*/
 #modal-validated{
-
     display: none;
     position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.479);
-
 }
-
 #modal-validated .content-validated{
     position: fixed ;
     left: 23%;
@@ -305,112 +288,67 @@ padding-top: 10px;
     background-color: #DB8876;
     width: 50%;
     height: 70%;
-
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
     justify-content: center;
-
     padding: 35px;
     padding-top: 10px;
     margin: auto;
     box-shadow: 0px 0px 20px black;
-
 }
-
 #modal-validated .content-validated .close-validated{
-
     position: absolute;
     right: 20px;
     top: 20px;
     cursor: pointer;
-
 }
-
 #modal-validated .content-validated .modal-body-validated{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     height: 100%;
-
-
 }
-
 #modal-validated .content-validated .modal-body-validated p{
-
     color: black;
     font-size: 35px;
     font-weight: bold;
-
 }
-
 #modal-validated .content-validated .modal-body-validated button{
-
     border: none;
     padding: 15px 30px 15px 30px;
     cursor: pointer;
-
     font-size: 25px;
-
     color: white;
     background-color: #901C1C;
     border-radius: 5px;
-
 }
-
-
-
-
-
-
-
-
-
 
 /*Stylisation de l'entête avec le nombre de like et le tarif journalier*/
 #div-info-like-price{
-
 position: fixed;
 bottom: 0;
 right: 50px;
-
 display: flex;
 align-items: center;
-
 gap: 50px;
-
 background-color: #DB8876;
 padding: 15px 30px 15px 30px;
-
 border-radius: 5px 5px 0px 0px;
-
-
 }
-
 #div-info-like-price div{
-
     display: flex;
     gap: 5px;
     align-items: center;
-
 }
-
 #div-info-like-price div img{
-
     color: black;
-
 }
-
 #div-info-like-price div p{
-
 margin: 0;
-
 font-size:  24px;
-
 }
-
-
 #div-info-like-price .p-price{
 margin: 0;
 font-size:  24px;
@@ -418,7 +356,6 @@ font-size:  24px;
 
 /*Gestion de la lightbox*/
 .lightbox{
-
 display: none;
 position: fixed;
 overflow: hidden;
@@ -431,61 +368,37 @@ justify-content: center;
 gap: 50px;
 height: 100%;
 width: 100%;
-
 }
-
 #div_button_next_close{
-
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 88%;
-
 }
-
 .button-close-lightbox{
-
     position: absolute;
     top: 0;
     cursor: pointer;
-
-
 }
-
 .lightbox-control{
-
     cursor: pointer;
-
 }
-
-
-
 .lightbox #lightbox-inner{
-
     overflow-x: hidden;
     display: flex;
     width: 45%;
     height: 100%;
-
-
-
 }
-
-
 .lightbox #lightbox-infos{
-
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease;
-
 }
-
 .lightbox #lightbox-infos .element-lightbox{
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -493,23 +406,16 @@ width: 100%;
     height: 85%;
     margin: auto;
     flex: 0 0 auto;
-
-
 }
 
 .lightbox #lightbox-infos .element-lightbox img , .lightbox #lightbox-infos .element-lightbox video{
-
     border-radius: 10px;
     max-height: 100%;
     width: 100%;
     object-fit: cover;
-
 }
-
 .lightbox #lightbox-infos .element-lightbox p{
-
 color: #901C1C;
 font-size: 24px;
 margin: 5px 0px 5px 0px;
-
 }
