@@ -1,20 +1,18 @@
-//Mettre le code JavaScript lié à la page photographer.html
+// Cette fonction sert a récupérer les informations du photographe ainsi que ces medias via un ID.
 async function getPhotographer(id) {
-    // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
-    // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
     try {
         const reponse = await fetch("data/photographers.json")
         const photographers = await reponse.json()
-        console.log(photographers)
         const photographer = photographers.photographers.find(x => x.id == id);
         const media = photographers.media.filter(x => x.photographerId == id)
         photographer.medias = media;
         return { photographer }
     } catch (error) {
-        console.log(error)
+        alert(error)
     }
 }
 
+// Cette fonction sert a afficher les éléments sur la page après avoir créé les éléments grâce au template photographe.
 async function displayDataPage(photographer) {
     const photographerModel = photographerTemplate(photographer);
     const pagePhotographer = document.getElementById('main');
@@ -25,6 +23,7 @@ async function displayDataPage(photographer) {
     userPhotographHeaderDOM.forEach((element) => headerPhotographePage.appendChild(element));
 }
 
+//Cette fonction sert a ajouter le nom du photographe dans la modale.
 async function addNameInModal(photographer) {
     const div_title_modal = document.getElementById('text-title-modal');
     const title_name_modal = document.createElement('h1');
@@ -32,8 +31,8 @@ async function addNameInModal(photographer) {
     div_title_modal.appendChild(title_name_modal);
 }
 
+//Fonction d'initialisation, on récupère l'ID du photographe dans les paramètres de l'URL et ensuite on initie les autres fonctions.
 async function init() {
-    // Récupère l'id du photographe et initie les autres fonctions
     const params = new URL(document.location).searchParams;
     const id = params.get("id");
     const { photographer } = await getPhotographer(id);
@@ -41,4 +40,5 @@ async function init() {
     addNameInModal(photographer);
 }
 
+//Appel la fonction d'initialisation au chargement de la page.
 init();

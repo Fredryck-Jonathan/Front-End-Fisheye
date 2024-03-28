@@ -1,3 +1,4 @@
+// Fonction qui sert a afficher la modal.
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";
@@ -9,6 +10,7 @@ function displayModal() {
     bodyDOM.style.overflow = "hidden";
 }
 
+//Fonction qui sert a fermer la modal.
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
@@ -20,16 +22,19 @@ function closeModal() {
     bodyDOM.style.overflow = "visible";
 }
 
+//Fonction qui affiche la modal de confirmation du formulaire.
 function displayValidatedModal() {
     const modal_validated = document.getElementById("modal-validated");
     modal_validated.style.display = "flex";
 }
 
+//Fonction qui ferme la modal de confirmation du formulaire.
 function closeModalValidated() {
     const modal_validated = document.getElementById("modal-validated");
     modal_validated.style.display = "none";
 }
 
+//fonction qui envoie le formulaire si toutes les vérifications sont effectuer.
 function submitForm(event) {
     event.preventDefault();
     const allErrorMessage = document.querySelectorAll('.formData[data-error-visible="true"]');
@@ -60,12 +65,14 @@ function submitForm(event) {
     }
 }
 
+//Fonction qui montre les erreurs sur la modal, via la data-error.
 function montrerErreur(element) {
     const formDataEvent = element.parentElement;
     formDataEvent.setAttribute("data-error-visible", "true");
     return false
 }
 
+//Fonction qui récupère la regex et l'élément a vérifier, il vérifie que le texte réussi la regex.
 function verificationText(element, regex) { 
     if (regex.test(element.value)) {
         return true
@@ -75,6 +82,7 @@ function verificationText(element, regex) {
     }
 }
 
+//Fonction qui sert à se déplacer dans la modal et a fermer la modal avec le clavier.
 document.addEventListener('keydown', function (event) {
     const modal = document.getElementById("contact_modal");
     const modalElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');

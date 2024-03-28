@@ -24,10 +24,9 @@ function photographerTemplate(data) {
         p_lieu.textContent = city + ', ' + country;
         p_lieu.classList.add('photographer_p_lieu');
         const p_tagline = document.createElement('p');
-        console.log(tagline)
+
         p_tagline.textContent = tagline;
         p_tagline.classList.add('photographer_p_tagline');
-        console.log(p_tagline)
         const p_price = document.createElement('p');
         p_price.textContent = price + '€/jour'
         p_price.classList.add('photographer_p_price');
@@ -87,7 +86,6 @@ function photographerTemplate(data) {
         medias.sort((a, b) => b.likes - a.likes);
         createGallery(medias, div_gallery)
         order_select.addEventListener("change", (event) => {
-            console.log(event.currentTarget.value);
             value_selected = event.currentTarget.value;
             if (value_selected === "popularity") {
                 medias.sort((a, b) => b.likes - a.likes);
@@ -135,7 +133,6 @@ function photographerTemplate(data) {
 
     function createGallery(medias, div_gallery) {
         medias.forEach((media, index )=> {
-            console.log(media)
             const div_one_element_gallery = document.createElement('div');
             div_one_element_gallery.classList.add('div-one-gallery');
             div_one_element_gallery.setAttribute('data-id', media.id);
@@ -231,11 +228,9 @@ function photographerTemplate(data) {
         const div_gallery = document.getElementById('gallery');
         const all_one_element = div_gallery.childNodes;
         medias.forEach(media => {
-            console.log(media);
             for (let element of all_one_element) {
                 const id_element = element.getAttribute('data-id');
                 if (id_element == media.id) {
-                    console.log(media, element)
                     div_gallery.appendChild(element);
                     return true
                 }

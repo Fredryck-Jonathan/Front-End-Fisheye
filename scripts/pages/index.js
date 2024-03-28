@@ -1,33 +1,31 @@
-    async function getPhotographers() {
-        // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
-        // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        try {
-            const reponse = await fetch("data/photographers.json")
-            console.log(reponse)
-            const photographers = await reponse.json()
-            console.log(photographers)
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return ({
-            photographers: photographers.photographers})
-        } catch (error) {
-            console.log(error)
-        }
+// Cette fonction sert a récupérer via un fetch notre json avec tous les éléments dans l'objet photographer.
+async function getPhotographers() {
+    try {
+        const reponse = await fetch("data/photographers.json")
+        const photographers = await reponse.json()
+    return ({
+        photographers: photographers.photographers})
+    } catch (error) {
+        alert(error)
     }
+}
+//Fonction pour afficher les données photographes.
+async function displayData(photographers) {
+    const photographersSection = document.querySelector(".photographer_section");
+    photographers.forEach((photographer) => {
+        const photographerModel = photographerTemplate(photographer);
+        const userCardDOM = photographerModel.getUserCardDOM();
+        photographersSection.appendChild(userCardDOM);
+    });
+}
 
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerTemplate(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    }
+//Fonction qui sert a initialiser le code, il est appelé au chargement de la page.
+async function init() {
+    const { photographers } = await getPhotographers();
+    displayData(photographers);
+}
 
-    async function init() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    }
 
-    init();
+//Appel la fonction d'initialisation au chargement de la page.
+init();
 
