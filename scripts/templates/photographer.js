@@ -236,8 +236,6 @@ function photographerTemplate(data) {
         document.getElementById('p-total-likes').textContent = totalLikes;
         const heart_black = event.currentTarget;
         const div_infos_one_element = heart_black.closest('.div-infos-one-gallery');
-        console.log(div_infos_one_element)
-
         const p_like_one_element = div_infos_one_element.querySelector('.p-likes');
         p_like_one_element.textContent = medias[mediaIndex].likes;
         const heart_red = heart_black.parentNode.querySelector('.button_liked_element');
