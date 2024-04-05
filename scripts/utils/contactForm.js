@@ -1,7 +1,8 @@
 // Fonction qui sert a afficher la modal.
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "block";
+    const contact_modal = document.getElementById("contact_modal");
+    contact_modal.style.display = "block";
+    const modal = document.getElementById('modal');
     modal.setAttribute('aria-hidden', 'false');
     const mainDOM = document.getElementById('main');
     mainDOM.setAttribute('aria-hidden', 'true');
@@ -12,8 +13,9 @@ function displayModal() {
 
 //Fonction qui sert a fermer la modal.
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+    const contact_modal = document.getElementById("contact_modal");
+    contact_modal.style.display = "none";
+    const modal = document.getElementById('modal');
     modal.setAttribute('aria-hidden', 'true')
     const mainDOM = document.getElementById('main');
     mainDOM.setAttribute('aria-hidden', 'false');
@@ -84,17 +86,26 @@ function verificationText(element, regex) {
 
 //Fonction qui sert à se déplacer dans la modal et a fermer la modal avec le clavier.
 document.addEventListener('keydown', function (event) {
-    const modal = document.getElementById("contact_modal");
-    const modalElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const modal = document.getElementById("modal");
     if (modal.getAttribute("aria-hidden") === 'false') {
+        let modalElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        const button_close_modal = document.getElementById('button-close-modal');
+        const index_button_close_modal = Array.from(modalElements).indexOf(button_close_modal);
+        const array_modalElements = Array.from(modalElements)
+        if (index_button_close_modal !== -1 && index_button_close_modal !== 10  ) {
+            array_modalElements.splice(index_button_close_modal, 1);
+            modalElements = array_modalElements;
+            modalElements.push(button_close_modal)
+        }
         if (event.key === "Escape") {
             closeModal();               
         } else if (event.key === 'Tab') {
             const firstElement = modalElements[0];
-            const lastElement = modalElements[modalElements.length - 1];
+            const lastElement = modalElements[modalElements.length-1];
+            const activeElementIndex = Array.from(modalElements).indexOf(document.activeElement);
             if (!modal.contains(document.activeElement)) {
                 event.preventDefault();
-                modalElements[0].focus();
+                firstElement.focus();
             }
             else if (event.shiftKey && document.activeElement === firstElement) {
                 event.preventDefault();
@@ -102,7 +113,13 @@ document.addEventListener('keydown', function (event) {
             } else if (!event.shiftKey && document.activeElement === lastElement) {
                 event.preventDefault();
                 firstElement.focus();
-            }  
+            } else if (event.shiftKey ){
+                event.preventDefault();
+                modalElements[activeElementIndex - 1].focus();
+            } else{
+                event.preventDefault();
+                modalElements[activeElementIndex + 1].focus();
+            }
         }
     }
 });

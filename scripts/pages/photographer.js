@@ -27,6 +27,7 @@ async function displayDataPage(photographer) {
 async function addNameInModal(photographer) {
     const div_title_modal = document.getElementById('text-title-modal');
     const title_name_modal = document.createElement('h1');
+    title_name_modal.setAttribute('id',"title-name-modal")
     title_name_modal.textContent = photographer.name
     div_title_modal.appendChild(title_name_modal);
 }

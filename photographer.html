@@ -9,87 +9,111 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
+      <a class="link-fisheye-logo" href="/" aria-label="Fisheye Home Page" tabindex="1">
+        <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
+      </a>
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" tabindex="2">Contactez-moi</button>
       </div>
     </main>
-    <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="Modal qui vous permets de nous contactez en remplissant un formulaire">
-			<div class="modal">
+    <div id="contact_modal">
+			<div id="modal" role="dialog" aria-hidden="true" aria-labelledby="contact-modal-title">
 				<header>
           <div id="text-title-modal">
-            <h2>Contactez-moi</h2>
+            <h2 aria-labelledby="title-name-modal" id="contact-modal-title" tabindex="1">Contactez-moi</h2>
           </div>
-          <img src="assets/icons/close.svg" alt="Close Contact form" onclick="closeModal()" />
+          <button id="button-close-modal" onclick="closeModal()" aria-label="Close contact form" tabindex="2">
+            <img src="assets/icons/close.svg" alt="Close Contact form"/>
+          </button>
+
         </header>
 				<form onsubmit="submitForm(event)">
 					<div
           class="formData"
           data-error="Veuillez entrer 2 caractères ou plus pour le champ du Prénom." 
           data-error-visible="false">
-						<label for="first">Prénom</label>
+						<label for="first" tabindex="1">Prénom</label>
 						<input 
               class="text-control"
               type="text"
               id="first" 
               alt="First name" 
               required
+              tabindex="1"
               />
 					</div>
           <div
           class="formData"
           data-error="Veuillez entrer 2 caractères ou plus pour le champ du Nom." 
           data-error-visible="false">
-						<label for="last">Nom</label>
+						<label for="last" tabindex="1">Nom</label>
 						<input                   
               class="text-control"
               type="text"
               id="last"
               alt="Last name"
               required
+              tabindex="1"
               />
 					</div>
           <div
           class="formData"
           data-error="Vous devez entrer une adresse Email valide." 
           data-error-visible="false">
-						<label for="email">Email</label>
+						<label for="email" tabindex="1">Email</label>
 						<input 
               class="text-control"
               type="email"
               id="email" 
               alt="Email" 
               required
+              tabindex="1"
               />
 					</div>
           <div
           class="formData"
           data-error="Veuillez entrer un message." 
           data-error-visible="false">
-						<label for="message">Votre message</label>
+						<label for="message" tabindex="1">Votre message</label>
 						<textarea
               class="text-control"
               type="text"
               id="message" 
               alt="Your message"
               required
+              tabindex="1"
               ></textarea>
 					</div>
-          <button type="submit" class="contact_button" alt="Send">Envoyer</button>
+          <button type="submit" class="contact_button" alt="Send" tabindex="1" >Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div class="lightbox" id="lightbox" role="dialog">
-      <img class="lightbox-control previous" id="button-previous-image" src="assets/icons/arrow_left.svg" alt="Previous image">
+
+
+      <button id="button-previous-image" tabindex="0" class="lightbox-control">
+        <img class="lightbox-control previous"  src="assets/icons/arrow_left.svg"  alt="Previous image">
+      </button>
+      
+      
+      
       <div id="lightbox-inner">
         <div id="lightbox-infos">
         </div>
       </div>
       <div id="div_button_next_close">
-        <img  class="button-close-lightbox"  src="assets/icons/close_red.svg" alt="close lightbox" onclick="closeLightbox()" >
-        <img class="lightbox-control next" id="button-next-image" src="assets/icons/arrow_right.svg" alt="Next image">
+
+        <button class="button-close-lightbox" id="button-close-lightbox" tabindex="0" class="button_lightbox">
+          <img  src="assets/icons/close_red.svg" alt="close lightbox" onclick="closeLightbox()" >
+        </button>
+        
+        <button class="lightbox-control next" id="button-next-image" tabindex="0" class="button_lightbox">
+          <img src="assets/icons/arrow_right.svg"  alt="Next image">
+        </button>
+      
+      
       </div>
     </div>
     <div id="modal-validated">

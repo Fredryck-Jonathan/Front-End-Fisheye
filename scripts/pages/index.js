@@ -9,6 +9,7 @@ async function getPhotographers() {
         alert(error)
     }
 }
+
 //Fonction pour afficher les données photographes.
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
