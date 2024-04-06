@@ -139,9 +139,8 @@ function closeLightbox() {
     bodyDOM.style.overflow = "visible";
     
     // Reinitialiser l'event en le remplacent par un clone de lui meme, car anonymous fonction.
-    lightbox.parentNode.replaceChild(clonedLightbox, lightbox);
     const clonedLightbox = lightbox.cloneNode(true);
-
+    lightbox.parentNode.replaceChild(clonedLightbox, lightbox);
 
     while (div_lightbox_infos.firstChild) {
         div_lightbox_infos.removeChild(div_lightbox_infos.firstChild);
