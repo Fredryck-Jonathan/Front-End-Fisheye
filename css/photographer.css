@@ -345,11 +345,13 @@ padding-top: 10px;
     margin: auto;
     box-shadow: 0px 0px 20px black;
 }
-#modal-validated .content-validated .close-validated{
+#modal-validated .content-validated #button-close-modal-validated{
     position: absolute;
     right: 20px;
     top: 20px;
     cursor: pointer;
+    border: none;
+    background: none;
 }
 #modal-validated .content-validated .modal-body-validated{
     display: flex;

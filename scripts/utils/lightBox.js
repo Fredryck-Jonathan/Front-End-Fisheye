@@ -56,7 +56,7 @@ function init_lightbox(event, medias_array, media, directory) {
     currentIndex = medias_array.indexOf(media);
 
     //Cette fonction sert à gerer l'utilisation du clavier quand la lightbox est ouverte
-    document.addEventListener('keydown', function (event) {
+    lightbox.addEventListener('keydown', function keyboardEvent(event) {
         if (lightbox.style.display == 'flex') {
             const button_previous_image = document.getElementById('button-previous-image');
             const button_next_image = document.getElementById('button-next-image');
@@ -65,7 +65,8 @@ function init_lightbox(event, medias_array, media, directory) {
             const children_lightbox = info_lightbox.children;
             const array_tab_lightbox = [];
             array_tab_lightbox.push(children_lightbox[currentIndex].firstChild);
-            array_tab_lightbox.push(children_lightbox[currentIndex].querySelector('.title-element-lightbox'));
+            const title_lightbox_element = children_lightbox[currentIndex].querySelector('.title-element-lightbox')
+            array_tab_lightbox.push(title_lightbox_element);
             if (currentIndex == medias_array.length - 1) {
                 array_tab_lightbox.push(button_previous_image);
             } else if (currentIndex == 0) {
@@ -86,6 +87,7 @@ function init_lightbox(event, medias_array, media, directory) {
                 closeLightbox();
             }
             else if (event.key == "Tab") {
+                console.log(array_tab_lightbox)
                 const firstElement = array_tab_lightbox[0];
                 const lastElement = array_tab_lightbox[array_tab_lightbox.length-1];
                 const activeElementIndex = Array.from(array_tab_lightbox).indexOf(document.activeElement);
@@ -135,6 +137,12 @@ function closeLightbox() {
     const bodyDOM = document.querySelector("body");
     bodyDOM.setAttribute('scroll', "yes");
     bodyDOM.style.overflow = "visible";
+    
+    // Reinitialiser l'event en le remplacent par un clone de lui meme, car anonymous fonction.
+    lightbox.parentNode.replaceChild(clonedLightbox, lightbox);
+    const clonedLightbox = lightbox.cloneNode(true);
+
+
     while (div_lightbox_infos.firstChild) {
         div_lightbox_infos.removeChild(div_lightbox_infos.firstChild);
     }
@@ -157,3 +165,4 @@ function translateImage(index, medias_array) {
     info_lightbox.style.transform = `translateX(${offset}%)`;
     children_lightbox[index].firstChild.focus({ preventScroll: true });
 }
+

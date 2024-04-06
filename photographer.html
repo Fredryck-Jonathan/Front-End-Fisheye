@@ -118,10 +118,12 @@
     </div>
     <div id="modal-validated">
       <div class="content-validated">
-        <img class="close-validated" src="assets/icons/close.svg" alt="close validated form" onclick="closeModalValidated()">
+        <button id="button-close-modal-validated" onclick="closeModalValidated()" aria-label="Close validated contact form" tabindex="0">
+          <img src="assets/icons/close.svg" alt="Close Contact form"/>
+        </button>
         <div class="modal-body-validated">
-            <p>Merci pour votre inscription</p>
-            <button class="close-btn-bground-validated" onclick="closeModalValidated()">Fermer</button>
+            <p id="p-modal-validated" tabindex="0">Merci pour votre inscription</p>
+            <button tabindex="0" class="close-btn-bground-validated" onclick="closeModalValidated()" aria-label="Close validated contact form">Fermer</button>
         </div>
       </div>
 

@@ -121,5 +121,46 @@ document.addEventListener('keydown', function (event) {
                 modalElements[activeElementIndex + 1].focus();
             }
         }
+
+    }
+    const modal_validated = document.getElementById("modal-validated");
+    if (modal_validated.style.display === 'flex') {
+        arrayElements = [];
+        const p_modal_validated = document.getElementById('p-modal-validated');
+        arrayElements.push(p_modal_validated);
+
+        const button_close_modal_validated_text = modal_validated.querySelector('.close-btn-bground-validated')
+
+        arrayElements.push(button_close_modal_validated_text);
+
+        const button_close_cross_modal_validated = document.getElementById('button-close-modal-validated');
+
+        arrayElements.push(button_close_cross_modal_validated);
+        console.log(arrayElements)
+
+        if (event.key === "Escape") {
+            closeModal();               
+        } else if (event.key === 'Tab') {
+            const firstElement = arrayElements[0];
+            const lastElement = arrayElements[arrayElements.length-1];
+            const activeElementIndex = Array.from(arrayElements).indexOf(document.activeElement);
+            if (!modal_validated.contains(document.activeElement)) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+            else if (event.shiftKey && document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            } else if (event.shiftKey ){
+                event.preventDefault();
+                arrayElements[activeElementIndex - 1].focus();
+            } else{
+                event.preventDefault();
+                arrayElements[activeElementIndex + 1].focus();
+            }
+        }
     }
 });
