@@ -128,16 +128,10 @@ document.addEventListener('keydown', function (event) {
         arrayElements = [];
         const p_modal_validated = document.getElementById('p-modal-validated');
         arrayElements.push(p_modal_validated);
-
-        const button_close_modal_validated_text = modal_validated.querySelector('.close-btn-bground-validated')
-
+        const button_close_modal_validated_text = modal_validated.querySelector('.close-btn-bground-validated');
         arrayElements.push(button_close_modal_validated_text);
-
         const button_close_cross_modal_validated = document.getElementById('button-close-modal-validated');
-
         arrayElements.push(button_close_cross_modal_validated);
-        console.log(arrayElements)
-
         if (event.key === "Escape") {
             closeModal();               
         } else if (event.key === 'Tab') {

@@ -87,7 +87,6 @@ function init_lightbox(event, medias_array, media, directory) {
                 closeLightbox();
             }
             else if (event.key == "Tab") {
-                console.log(array_tab_lightbox)
                 const firstElement = array_tab_lightbox[0];
                 const lastElement = array_tab_lightbox[array_tab_lightbox.length-1];
                 const activeElementIndex = Array.from(array_tab_lightbox).indexOf(document.activeElement);
