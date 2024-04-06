@@ -153,8 +153,10 @@ function photographerTemplate(data) {
             const div_media_one_element_gallery = document.createElement('div');
             div_media_one_element_gallery.classList.add('div-media-one-gallery');
             div_media_one_element_gallery.setAttribute('tabindex', '0');
-            div_media_one_element_gallery.setAttribute('aria-label', `${media.title}, closeup view`)
-            div_media_one_element_gallery.addEventListener('click', (event) => { init_lightbox(event, medias, media, directory) });
+            div_media_one_element_gallery.setAttribute('aria-label', `${media.title}, vue rapprochée en ouvrant la lightbox`)
+            div_media_one_element_gallery.addEventListener('click', (event) => {
+                init_lightbox(event, medias, media, directory)
+            });
             div_media_one_element_gallery.addEventListener('keydown', (event) => {
                 if (event.key === "Enter") {
                     event.preventDefault()

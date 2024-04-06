@@ -137,13 +137,16 @@ function closeLightbox() {
     bodyDOM.setAttribute('scroll', "yes");
     bodyDOM.style.overflow = "visible";
     
-    // Reinitialiser l'event en le remplacent par un clone de lui meme, car anonymous fonction.
-    const clonedLightbox = lightbox.cloneNode(true);
-    lightbox.parentNode.replaceChild(clonedLightbox, lightbox);
 
     while (div_lightbox_infos.firstChild) {
         div_lightbox_infos.removeChild(div_lightbox_infos.firstChild);
+        console.log("bonjour")
     }
+
+    // Reinitialiser l'event en le remplacent par un clone de lui meme, car anonymous fonction.
+    const clonedLightbox = lightbox.cloneNode(true);
+    lightbox.parentNode.replaceChild(clonedLightbox, lightbox);
+    
 }
 
 //Cette fonction sert a déplacé les imagesde la lightbox

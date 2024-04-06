@@ -27,8 +27,8 @@
           <button id="button-close-modal" onclick="closeModal()" aria-label="Close contact form" tabindex="2">
             <img src="assets/icons/close.svg" alt="Close Contact form"/>
           </button>
-
         </header>
+        
 				<form onsubmit="submitForm(event)">
 					<div
           class="formData"
@@ -39,7 +39,7 @@
               class="text-control"
               type="text"
               id="first" 
-              alt="First name" 
+              aria-label="First name" 
               required
               tabindex="1"
               />
@@ -53,7 +53,7 @@
               class="text-control"
               type="text"
               id="last"
-              alt="Last name"
+              aria-label="Last name"
               required
               tabindex="1"
               />
@@ -67,7 +67,7 @@
               class="text-control"
               type="email"
               id="email" 
-              alt="Email" 
+              aria-label="Email" 
               required
               tabindex="1"
               />
@@ -81,7 +81,7 @@
               class="text-control"
               type="text"
               id="message" 
-              alt="Your message"
+              aria-label="Your message"
               required
               tabindex="1"
               ></textarea>
