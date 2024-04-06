@@ -80,7 +80,7 @@ function photographerTemplate(data) {
         label_select.setAttribute('tabindex', "0");
         const order_select = document.createElement('select');
         order_select.setAttribute('id', "order-select");
-        order_select.setAttribute('aria-label', 'order by')
+        order_select.setAttribute('aria-label', 'Trier par')
         const option_popularity_select = document.createElement('option');
         option_popularity_select.setAttribute('value', "popularity");
         option_popularity_select.setAttribute('selected', "");
@@ -115,7 +115,7 @@ function photographerTemplate(data) {
         p_number_like.textContent = countLikes();
         const emote_like = document.createElement('img');
         emote_like.setAttribute('src', 'assets/icons/heart_black.svg');
-        emote_like.setAttribute('alt', "Likes")
+        emote_like.setAttribute('alt', "J'aime")
         div_infos_like.appendChild(p_number_like);
         div_infos_like.appendChild(emote_like);
         const p_price = document.createElement('p');
@@ -196,25 +196,25 @@ function photographerTemplate(data) {
             const icone_likes_one_element_gallery = document.createElement('img');
             icone_likes_one_element_gallery.classList.add('icone-likes');
             icone_likes_one_element_gallery.setAttribute('src', 'assets/icons/heart_red.svg');
-            icone_likes_one_element_gallery.setAttribute('alt', 'likes');
+            icone_likes_one_element_gallery.setAttribute('alt', "J'aime");
             const div_icone_like_one_element_gallery = document.createElement('div');
             div_icone_like_one_element_gallery.classList.add('div-icone-like');
             const button_no_liked = document.createElement('button');
             button_no_liked.classList.add('button_no_liked_element');
-            button_no_liked.setAttribute('aria-label', 'Add like');
+            button_no_liked.setAttribute('aria-label', "Ajjouter un j'aime");
             button_no_liked.addEventListener('click',(event) => addLike(event, media));
             const icone_like_no_liked_one_element_gallery = document.createElement('img');
             icone_like_no_liked_one_element_gallery.setAttribute('src', 'assets/icons/heart_empty.svg');
-            icone_like_no_liked_one_element_gallery.setAttribute('alt', "likes");
+            icone_like_no_liked_one_element_gallery.setAttribute('alt', "J'aime");
             icone_like_no_liked_one_element_gallery.classList.add('img-no-like-one-gallery')
             button_no_liked.appendChild(icone_like_no_liked_one_element_gallery);
             const button_liked = document.createElement('button');
             button_liked.classList.add('button_liked_element');
-            button_liked.setAttribute('aria-label', 'Remove like');
+            button_liked.setAttribute('aria-label', "Retirer un j'aime");
             button_liked.addEventListener('click',(event) => removeLike(event, media));
             const icone_like_liked_one_element_gallery = document.createElement('img');
             icone_like_liked_one_element_gallery.setAttribute('src', 'assets/icons/heart_red.svg');
-            icone_like_liked_one_element_gallery.setAttribute('alt', "likes");
+            icone_like_liked_one_element_gallery.setAttribute('alt', "J'aime");
             icone_like_liked_one_element_gallery.classList.add('img-like-one-gallery');
             button_liked.appendChild(icone_like_liked_one_element_gallery);
             div_icone_like_one_element_gallery.appendChild(button_no_liked);

@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <a class="link-fisheye-logo" href="/" aria-label="Fisheye Home Page" tabindex="1">
+      <a class="link-fisheye-logo" href="/" aria-label="Fisheye Page d'accueil" tabindex="1">
         <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
       </a>
     </header>
@@ -24,11 +24,11 @@
           <div id="text-title-modal">
             <h2 aria-labelledby="title-name-modal" id="contact-modal-title" tabindex="1">Contactez-moi</h2>
           </div>
-          <button id="button-close-modal" onclick="closeModal()" aria-label="Close contact form" tabindex="2">
-            <img src="assets/icons/close.svg" alt="Close Contact form"/>
+          <button id="button-close-modal" onclick="closeModal()" aria-label="Fermeture du formulaire de contact" tabindex="2">
+            <img src="assets/icons/close.svg" alt="Fermeture du formulaire de contact"/>
           </button>
         </header>
-        
+
 				<form onsubmit="submitForm(event)">
 					<div
           class="formData"
@@ -39,7 +39,7 @@
               class="text-control"
               type="text"
               id="first" 
-              aria-label="First name" 
+              aria-label="Prénom" 
               required
               tabindex="1"
               />
@@ -53,7 +53,7 @@
               class="text-control"
               type="text"
               id="last"
-              aria-label="Last name"
+              aria-label="Nom de famille"
               required
               tabindex="1"
               />
@@ -81,20 +81,20 @@
               class="text-control"
               type="text"
               id="message" 
-              aria-label="Your message"
+              aria-label="Votre message"
               required
               tabindex="1"
               ></textarea>
 					</div>
-          <button type="submit" class="contact_button" alt="Send" tabindex="1" >Envoyer</button>
+          <button type="submit" class="contact_button" aria-label="Envoyer le formulaire" tabindex="1" >Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div class="lightbox" id="lightbox" role="dialog">
 
 
-      <button id="button-previous-image" tabindex="0" class="lightbox-control">
-        <img class="lightbox-control previous"  src="assets/icons/arrow_left.svg"  alt="Previous image">
+      <button id="button-previous-image" tabindex="0" class="lightbox-control" aria-label="Image précédente">
+        <img class="lightbox-control previous"  src="assets/icons/arrow_left.svg"  alt="Image précédente">
       </button>
       
       
@@ -105,12 +105,12 @@
       </div>
       <div id="div_button_next_close">
 
-        <button class="button-close-lightbox" id="button-close-lightbox" tabindex="0" class="button_lightbox" onclick="closeLightbox()">
-          <img  src="assets/icons/close_red.svg" alt="close lightbox" >
+        <button class="button-close-lightbox" id="button-close-lightbox" tabindex="0" aria-label="femeture de la lightbox" class="button_lightbox" onclick="closeLightbox()">
+          <img  src="assets/icons/close_red.svg" alt="Fermeture lightbox" >
         </button>
         
-        <button class="lightbox-control next" id="button-next-image" tabindex="0" class="button_lightbox">
-          <img src="assets/icons/arrow_right.svg"  alt="Next image">
+        <button class="lightbox-control next" id="button-next-image" tabindex="0" class="button_lightbox" aria-label="Image suivante">
+          <img src="assets/icons/arrow_right.svg"  alt="Image suivante">
         </button>
       
       
@@ -118,12 +118,12 @@
     </div>
     <div id="modal-validated">
       <div class="content-validated">
-        <button id="button-close-modal-validated" onclick="closeModalValidated()" aria-label="Close validated contact form" tabindex="0">
-          <img src="assets/icons/close.svg" alt="Close Contact form"/>
+        <button id="button-close-modal-validated" onclick="closeModalValidated()" aria-label="Fermeture la modal de validation" tabindex="0">
+          <img src="assets/icons/close.svg" alt="Fermeture la modal de validation"/>
         </button>
         <div class="modal-body-validated">
             <p id="p-modal-validated" tabindex="0">Merci pour votre inscription</p>
-            <button tabindex="0" class="close-btn-bground-validated" onclick="closeModalValidated()" aria-label="Close validated contact form">Fermer</button>
+            <button tabindex="0" class="close-btn-bground-validated" onclick="closeModalValidated()" aria-label="Fermeture la modal de validation">Fermer</button>
         </div>
       </div>
 
