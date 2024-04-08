@@ -201,7 +201,7 @@ function photographerTemplate(data) {
             div_icone_like_one_element_gallery.classList.add('div-icone-like');
             const button_no_liked = document.createElement('button');
             button_no_liked.classList.add('button_no_liked_element');
-            button_no_liked.setAttribute('aria-label', "Ajjouter un j'aime");
+            button_no_liked.setAttribute('aria-label', "Ajouter un j'aime");
             button_no_liked.addEventListener('click',(event) => addLike(event, media));
             const icone_like_no_liked_one_element_gallery = document.createElement('img');
             icone_like_no_liked_one_element_gallery.setAttribute('src', 'assets/icons/heart_empty.svg');

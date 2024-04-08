@@ -79,7 +79,6 @@
 						<label for="message" tabindex="1">Votre message</label>
 						<textarea
               class="text-control"
-              type="text"
               id="message" 
               aria-label="Votre message"
               required
@@ -105,11 +104,11 @@
       </div>
       <div id="div_button_next_close">
 
-        <button class="button-close-lightbox" id="button-close-lightbox" tabindex="0" aria-label="femeture de la lightbox" class="button_lightbox" onclick="closeLightbox()">
+        <button class="button-close-lightbox button_lightbox" id="button-close-lightbox" tabindex="0" aria-label="femeture de la lightbox" onclick="closeLightbox()">
           <img  src="assets/icons/close_red.svg" alt="Fermeture lightbox" >
         </button>
         
-        <button class="lightbox-control next" id="button-next-image" tabindex="0" class="button_lightbox" aria-label="Image suivante">
+        <button class="lightbox-control next button_lightbox" id="button-next-image" tabindex="0" aria-label="Image suivante">
           <img src="assets/icons/arrow_right.svg"  alt="Image suivante">
         </button>
       
@@ -126,6 +125,7 @@
             <button tabindex="0" class="close-btn-bground-validated" onclick="closeModalValidated()" aria-label="Fermeture la modal de validation">Fermer</button>
         </div>
       </div>
+    </div>
 
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/templates/photographer.js"></script>
